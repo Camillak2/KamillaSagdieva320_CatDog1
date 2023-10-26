@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="20966267271845b8b4d98a19b04c3664" Name="Diagram1">
-        <EntityTypeShape EntityType="KamillaSagdieva320_CatDog1Model.Action" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+      <Diagram DiagramId="5efeda7193ae4fc481c6c8a6169d12c0" Name="Diagram1">
+        <EntityTypeShape EntityType="KamillaSagdieva320_CatDog1Model.Actionn" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="KamillaSagdieva320_CatDog1Model.Animal" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="KamillaSagdieva320_CatDog1Model.Owner" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KamillaSagdieva320_CatDog1Model.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />

@@ -12,10 +12,10 @@ namespace KamillaSagdieva320_.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class Action
+    public partial class Actionn
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Action()
+        public Actionn()
         {
             this.Animal = new HashSet<Animal>();
         }

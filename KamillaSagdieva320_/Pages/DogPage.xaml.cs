@@ -24,16 +24,16 @@ namespace KamillaSagdieva320_.Pages
     public partial class DogPage : Page
     {
         public static List<Animal> animals { get; set; }
-        public static List<Owner> owners { get; set; }
-        public static List<Action> actions { get; set; }
+        public static List<Actionn> actions { get; set; }
         public static Animal animal { get; set; }
         public DogPage()
         {
             InitializeComponent();
             animals = new List<Animal>
                 (DBConnection.catDogEntities.Animal.ToList());
-            owners = new List<Owner>
-                (DBConnection.catDogEntities.Owner.ToList());
+            actions = new List<Actionn>
+                (DBConnection.catDogEntities.Actionn.ToList());
+
             this.DataContext = this;
         }
         private void AddPhotoBTN_Click(object sender, RoutedEventArgs e)
@@ -56,15 +56,15 @@ namespace KamillaSagdieva320_.Pages
 
         private void Refresh()
         {
-            var filtred = DBConnection.catDogEntities.Animal.ToList();
+            var filtred = DBConnection.catDogEntities.Actionn.ToList();
 
             var action = ActionFilterCB.SelectedItem as Action;
             var surchText = SearchTB.Text.ToLower();
 
-            filtred = filtred.Where(x => x.ID_Action == action.ID).ToList();
+            filtred = filtred.Where(x => x.Name == actions.ID).ToList();
 
             if (!string.IsNullOrWhiteSpace(surchText))
-                filtred = filtred.Where(x => x.Surname.ToLower().Contains(surchText)).ToList();
+                filtred = filtred.Where(x => x.Name.ToLower().Contains(surchText)).ToList();
             AnimalsLV.ItemsSource = filtred.ToList();
 
         }
@@ -75,14 +75,14 @@ namespace KamillaSagdieva320_.Pages
 
         private void AddBTN_Click(object sender, RoutedEventArgs e)
         {
-            var a = ActionAddCB.SelectedItem as Action;
+            var a = ActionAddCB.SelectedItem as Actionn;
             animal.ID_Action = a.ID;
 
-            DBConnection.catDogEntities.Animal.Add(animals);
+            DBConnection.catDogEntities.Actionn.Add(animal);
             DBConnection.catDogEntities.SaveChanges();
 
             AnimalsLV.ItemsSource = new List<Animal>
-                (DBConnection.catDogEntities.Animal.ToList());
+                (DBConnection.catDogEntities.Actionn.ToList());
         }
     }
 }

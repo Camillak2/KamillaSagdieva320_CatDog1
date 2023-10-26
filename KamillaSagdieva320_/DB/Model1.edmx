@@ -5,7 +5,7 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище KamillaSagdieva320_CatDog1Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Action">
+        <EntityType Name="Actionn">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -44,10 +44,10 @@
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_Animal_Action">
-          <End Role="Action" Type="Self.Action" Multiplicity="0..1" />
+          <End Role="Actionn" Type="Self.Actionn" Multiplicity="0..1" />
           <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Action">
+            <Principal Role="Actionn">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Animal">
@@ -68,12 +68,12 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище KamillaSagdieva320_CatDog1ModelContainer">
-          <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Actionn" EntityType="Self.Actionn" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Animal" EntityType="Self.Animal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Owner" EntityType="Self.Owner" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Animal_Action" Association="Self.FK_Animal_Action">
-            <End Role="Action" EntitySet="Action" />
+            <End Role="Actionn" EntitySet="Actionn" />
             <End Role="Animal" EntitySet="Animal" />
           </AssociationSet>
           <AssociationSet Name="FK_Animal_To_Owner" Association="Self.FK_Animal_To_Owner">
@@ -86,13 +86,13 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KamillaSagdieva320_CatDog1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Action">
+        <EntityType Name="Actionn">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_Action" FromRole="Action" ToRole="Animal" />
+          <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_Action" FromRole="Actionn" ToRole="Animal" />
         </EntityType>
         <EntityType Name="Animal">
           <Key>
@@ -104,7 +104,7 @@
           <Property Name="ID_Owner" Type="Int32" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ID_Action" Type="Int32" />
-          <NavigationProperty Name="Action" Relationship="Self.FK_Animal_Action" FromRole="Animal" ToRole="Action" />
+          <NavigationProperty Name="Actionn" Relationship="Self.FK_Animal_Action" FromRole="Animal" ToRole="Actionn" />
           <NavigationProperty Name="Owner" Relationship="Self.FK_Animal_To_Owner" FromRole="Animal" ToRole="Owner" />
         </EntityType>
         <EntityType Name="Owner">
@@ -129,10 +129,10 @@
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_Animal_Action">
-          <End Role="Action" Type="Self.Action" Multiplicity="0..1" />
+          <End Role="Actionn" Type="Self.Actionn" Multiplicity="0..1" />
           <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Action">
+            <Principal Role="Actionn">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Animal">
@@ -152,13 +152,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="KamillaSagdieva320_CatDog1Entities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Action" EntityType="Self.Action" />
+        <EntityContainer Name="KamillaSagdieva320_CatDog1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Actionn" EntityType="Self.Actionn" />
           <EntitySet Name="Animal" EntityType="Self.Animal" />
           <EntitySet Name="Owner" EntityType="Self.Owner" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <AssociationSet Name="FK_Animal_Action" Association="Self.FK_Animal_Action">
-            <End Role="Action" EntitySet="Action" />
+            <End Role="Actionn" EntitySet="Actionn" />
             <End Role="Animal" EntitySet="Animal" />
           </AssociationSet>
           <AssociationSet Name="FK_Animal_To_Owner" Association="Self.FK_Animal_To_Owner">
@@ -171,10 +171,10 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище KamillaSagdieva320_CatDog1ModelContainer" CdmEntityContainer="KamillaSagdieva320_CatDog1Entities1">
-          <EntitySetMapping Name="Action">
-            <EntityTypeMapping TypeName="KamillaSagdieva320_CatDog1Model.Action">
-              <MappingFragment StoreEntitySet="Action">
+        <EntityContainerMapping StorageEntityContainer="Хранилище KamillaSagdieva320_CatDog1ModelContainer" CdmEntityContainer="KamillaSagdieva320_CatDog1Entities">
+          <EntitySetMapping Name="Actionn">
+            <EntityTypeMapping TypeName="KamillaSagdieva320_CatDog1Model.Actionn">
+              <MappingFragment StoreEntitySet="Actionn">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
