@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\202115\source\repos\KamillaSagdieva320_CatDog\KamillaSagdieva320_\App.xaml
-21400805717
+4-1580634848
 2-973498431
-151873793493
+17-821917670
 181825721877
-MainWindow.xaml;Pages\AuthorizationPage.xaml;
+MainWindow.xaml;Pages\AuthorizationPage.xaml;Pages\DogPage.xaml;Pages\KittyPage.xaml;
 
-False
+True
 

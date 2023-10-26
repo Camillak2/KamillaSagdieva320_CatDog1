@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KamillaSagdieva320_.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace KamillaSagdieva320_
         public MainWindow()
         {
             InitializeComponent();
+            NaFr.NavigationService.Navigate(new AuthorizationPage());
         }
     }
 }
