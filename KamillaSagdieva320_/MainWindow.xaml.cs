@@ -23,6 +23,7 @@ namespace KamillaSagdieva320_
         public MainWindow()
         {
             InitializeComponent();
+
         }
     }
 }
