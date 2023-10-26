@@ -1,14 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Хранилище KamillaSagdieva320_CatDog1Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Action">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Animal">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
-    <Property Name="ID_Type" Type="int" />
+    <Property Name="Type" Type="nvarchar" MaxLength="30" />
     <Property Name="ID_Owner" Type="int" />
     <Property Name="Photo" Type="varbinary(max)" />
+    <Property Name="ID_Action" Type="int" />
   </EntityType>
   <EntityType Name="Owner">
     <Key>
@@ -30,13 +38,18 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <EntityType Name="Type">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" />
-  </EntityType>
+  <Association Name="FK_Animal_Action">
+    <End Role="Action" Type="Self.Action" Multiplicity="0..1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Action">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="ID_Action" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Animal_To_Owner">
     <End Role="Owner" Type="Self.Owner" Multiplicity="0..1" />
     <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
@@ -49,29 +62,17 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Animal_To_Type">
-    <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
-    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Type">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Animal">
-        <PropertyRef Name="ID_Type" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="Хранилище KamillaSagdieva320_CatDog1ModelContainer">
+    <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Animal" EntityType="Self.Animal" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Owner" EntityType="Self.Owner" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_Animal_To_Owner" Association="Self.FK_Animal_To_Owner">
-      <End Role="Owner" EntitySet="Owner" />
+    <AssociationSet Name="FK_Animal_Action" Association="Self.FK_Animal_Action">
+      <End Role="Action" EntitySet="Action" />
       <End Role="Animal" EntitySet="Animal" />
     </AssociationSet>
-    <AssociationSet Name="FK_Animal_To_Type" Association="Self.FK_Animal_To_Type">
-      <End Role="Type" EntitySet="Type" />
+    <AssociationSet Name="FK_Animal_To_Owner" Association="Self.FK_Animal_To_Owner">
+      <End Role="Owner" EntitySet="Owner" />
       <End Role="Animal" EntitySet="Animal" />
     </AssociationSet>
   </EntityContainer>

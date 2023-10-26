@@ -16,11 +16,12 @@ namespace KamillaSagdieva320_.DB
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public Nullable<int> ID_Type { get; set; }
+        public string Type { get; set; }
         public Nullable<int> ID_Owner { get; set; }
         public byte[] Photo { get; set; }
+        public Nullable<int> ID_Action { get; set; }
     
+        public virtual Action Action { get; set; }
         public virtual Owner Owner { get; set; }
-        public virtual Type Type { get; set; }
     }
 }

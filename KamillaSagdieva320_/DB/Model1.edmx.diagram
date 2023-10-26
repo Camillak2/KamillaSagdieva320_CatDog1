@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e6175d026ffd4d9ca82d89e960d6446b" Name="Diagram1">
+      <Diagram DiagramId="20966267271845b8b4d98a19b04c3664" Name="Diagram1">
+        <EntityTypeShape EntityType="KamillaSagdieva320_CatDog1Model.Action" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="KamillaSagdieva320_CatDog1Model.Animal" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="KamillaSagdieva320_CatDog1Model.Owner" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="KamillaSagdieva320_CatDog1Model.Owner" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KamillaSagdieva320_CatDog1Model.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KamillaSagdieva320_CatDog1Model.Type" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="KamillaSagdieva320_CatDog1Model.FK_Animal_Action" ManuallyRouted="false" />
         <AssociationConnector Association="KamillaSagdieva320_CatDog1Model.FK_Animal_To_Owner" ManuallyRouted="false" />
-        <AssociationConnector Association="KamillaSagdieva320_CatDog1Model.FK_Animal_To_Type" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

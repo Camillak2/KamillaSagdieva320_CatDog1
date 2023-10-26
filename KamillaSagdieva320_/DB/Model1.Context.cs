@@ -13,10 +13,10 @@ namespace KamillaSagdieva320_.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class KamillaSagdieva320_CatDog1Entities : DbContext
+    public partial class KamillaSagdieva320_CatDog1Entities1 : DbContext
     {
-        public KamillaSagdieva320_CatDog1Entities()
-            : base("name=KamillaSagdieva320_CatDog1Entities")
+        public KamillaSagdieva320_CatDog1Entities1()
+            : base("name=KamillaSagdieva320_CatDog1Entities1")
         {
         }
     
@@ -25,9 +25,9 @@ namespace KamillaSagdieva320_.DB
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Action> Action { get; set; }
         public virtual DbSet<Animal> Animal { get; set; }
         public virtual DbSet<Owner> Owner { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Type> Type { get; set; }
     }
 }
