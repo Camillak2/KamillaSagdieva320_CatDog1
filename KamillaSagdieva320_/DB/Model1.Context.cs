@@ -25,7 +25,6 @@ namespace KamillaSagdieva320_.DB
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Actionn> Actionn { get; set; }
         public virtual DbSet<Animal> Animal { get; set; }
         public virtual DbSet<Owner> Owner { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }

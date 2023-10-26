@@ -19,9 +19,8 @@ namespace KamillaSagdieva320_.DB
         public string Type { get; set; }
         public Nullable<int> ID_Owner { get; set; }
         public byte[] Photo { get; set; }
-        public Nullable<int> ID_Action { get; set; }
+        public string Action { get; set; }
     
-        public virtual Actionn Actionn { get; set; }
         public virtual Owner Owner { get; set; }
     }
 }

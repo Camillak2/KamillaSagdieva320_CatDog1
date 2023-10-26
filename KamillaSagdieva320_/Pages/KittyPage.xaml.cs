@@ -21,68 +21,68 @@ namespace KamillaSagdieva320_.Pages
     /// <summary>
     /// Логика взаимодействия для KittyPage.xaml
     /// </summary>
-    public partial class KittyPage : Page
-    {
-        public static List<Animal> animals { get; set; }
-        public static List<Actionn> actions { get; set; }
-        public static Animal animal { get; set; }
-        public KittyPage()
-        {
-            InitializeComponent();
-            animals = new List<Animal>
-                (DBConnection.catDogEntities.Animal.ToList());
-            actions = new List<Actionn>
-                (DBConnection.catDogEntities.Actionn.ToList());
+    //public partial class KittyPage : Page
+    //{
+    //    public static List<Animal> animals { get; set; }
+    //    public static List<Actionn> actions { get; set; }
+    //    public static Animal animal { get; set; }
+    //    public KittyPage()
+    //    {
+    //        InitializeComponent();
+    //        animals = new List<Animal>
+    //            (DBConnection.catDogEntities.Animal.ToList());
+    //        actions = new List<Actionn>
+    //            (DBConnection.catDogEntities.Actionn.ToList());
 
-            this.DataContext = this;
-        }
-        private void AddPhotoBTN_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog()
-            {
-                Filter = "*.png|*.png|*.jpeg|*.jpeg|*.jpg|*.jpg"
-            };
-            if (openFileDialog.ShowDialog().GetValueOrDefault())
-            {
-                animal.Photo = File.ReadAllBytes(openFileDialog.FileName);
-                TestImage.Source = new BitmapImage(new Uri(openFileDialog.FileName));
-                //DBConnection.strayKidsEntities.SaveChanges();
-            }
-        }
-        private void PositionFilterCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Refresh();
-        }
+    //        this.DataContext = this;
+    //    }
+    //    private void AddPhotoBTN_Click(object sender, RoutedEventArgs e)
+    //    {
+    //        OpenFileDialog openFileDialog = new OpenFileDialog()
+    //        {
+    //            Filter = "*.png|*.png|*.jpeg|*.jpeg|*.jpg|*.jpg"
+    //        };
+    //        if (openFileDialog.ShowDialog().GetValueOrDefault())
+    //        {
+    //            animal.Photo = File.ReadAllBytes(openFileDialog.FileName);
+    //            TestImage.Source = new BitmapImage(new Uri(openFileDialog.FileName));
+    //            //DBConnection.strayKidsEntities.SaveChanges();
+    //        }
+    //    }
+    //    private void PositionFilterCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    //    {
+    //        Refresh();
+    //    }
 
-        private void Refresh()
-        {
-            var filtred = DBConnection.catDogEntities.Actionn.ToList();
+    //    private void Refresh()
+    //    {
+    //        var filtred = DBConnection.catDogEntities.Actionn.ToList();
 
-            var action = ActionFilterCB.SelectedItem as Action;
-            var surchText = SearchTB.Text.ToLower();
+    //        var action = ActionFilterCB.SelectedItem as Action;
+    //        var surchText = SearchTB.Text.ToLower();
 
-            filtred = filtred.Where(x => x.Name == actions.ID).ToList();
+    //        filtred = filtred.Where(x => x.Name == actions.ID).ToList();
 
-            if (!string.IsNullOrWhiteSpace(surchText))
-                filtred = filtred.Where(x => x.Name.ToLower().Contains(surchText)).ToList();
-            AnimalsLV.ItemsSource = filtred.ToList();
+    //        if (!string.IsNullOrWhiteSpace(surchText))
+    //            filtred = filtred.Where(x => x.Name.ToLower().Contains(surchText)).ToList();
+    //        AnimalsLV.ItemsSource = filtred.ToList();
 
-        }
-        private void SearchTB_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-            Refresh();
-        }
+    //    }
+    //    private void SearchTB_TextChanged_1(object sender, TextChangedEventArgs e)
+    //    {
+    //        Refresh();
+    //    }
 
-        private void AddBTN_Click(object sender, RoutedEventArgs e)
-        {
-            var a = ActionAddCB.SelectedItem as Actionn;
-            animal.ID_Action = a.ID;
+    //    private void AddBTN_Click(object sender, RoutedEventArgs e)
+    //    {
+    //        var a = ActionAddCB.SelectedItem as Actionn;
+    //        animal.ID_Action = a.ID;
 
-            DBConnection.catDogEntities.Actionn.Add(animal);
-            DBConnection.catDogEntities.SaveChanges();
+    //        DBConnection.catDogEntities.Animal.Add(animal);
+    //        DBConnection.catDogEntities.SaveChanges();
 
-            AnimalsLV.ItemsSource = new List<Animal>
-                (DBConnection.catDogEntities.Actionn.ToList());
-        }
+    //        AnimalsLV.ItemsSource = new List<Animal>
+    //            (DBConnection.catDogEntities.Animal.ToList());
+    //    }
     }
-}
+

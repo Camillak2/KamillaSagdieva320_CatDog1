@@ -1,13 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="KamillaSagdieva320_CatDog1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Action">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_Action" FromRole="Action" ToRole="Animal" />
-  </EntityType>
   <EntityType Name="Animal">
     <Key>
       <PropertyRef Name="ID" />
@@ -17,8 +9,7 @@
     <Property Name="Type" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="ID_Owner" Type="Int32" />
     <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-    <Property Name="ID_Action" Type="Int32" />
-    <NavigationProperty Name="Action" Relationship="Self.FK_Animal_Action" FromRole="Animal" ToRole="Action" />
+    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Owner" Relationship="Self.FK_Animal_To_Owner" FromRole="Animal" ToRole="Owner" />
   </EntityType>
   <EntityType Name="Owner">
@@ -42,18 +33,6 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <Association Name="FK_Animal_Action">
-    <End Role="Action" Type="Self.Action" Multiplicity="0..1" />
-    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Action">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Animal">
-        <PropertyRef Name="ID_Action" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Animal_To_Owner">
     <End Role="Owner" Type="Self.Owner" Multiplicity="0..1" />
     <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
@@ -66,15 +45,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="KamillaSagdieva320_CatDog1Entities1" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Action" EntityType="Self.Action" />
+  <EntityContainer Name="KamillaSagdieva320_CatDog1Entities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Animal" EntityType="Self.Animal" />
     <EntitySet Name="Owner" EntityType="Self.Owner" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <AssociationSet Name="FK_Animal_Action" Association="Self.FK_Animal_Action">
-      <End Role="Action" EntitySet="Action" />
-      <End Role="Animal" EntitySet="Animal" />
-    </AssociationSet>
     <AssociationSet Name="FK_Animal_To_Owner" Association="Self.FK_Animal_To_Owner">
       <End Role="Owner" EntitySet="Owner" />
       <End Role="Animal" EntitySet="Animal" />
